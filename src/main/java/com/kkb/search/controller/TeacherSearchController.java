@@ -1,20 +1,16 @@
 package com.kkb.search.controller;
 
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.collect.Lists;
 import com.kkb.core.web.KkbResponse;
-import com.kkb.search.domain.EnrollVo;
+import com.kkb.core.web.KkbWebStatus;
 import com.kkb.search.domain.TeacherSearchVo;
-import com.kkb.search.entity.Enroll;
 import com.kkb.search.entity.TeacherSearch;
 import com.kkb.search.service.ITeacherSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.List;
 
@@ -41,9 +37,12 @@ public class TeacherSearchController {
 
 	@PostMapping("/add")
 	public KkbResponse add(@RequestBody @Valid TeacherSearchVo teacherSearchVo) {
+		if(teacherSearchVo.getTeacherIds().size() < 2 || teacherSearchVo.getTeacherIds().size() > 3){
+			return KkbResponse.failure(KkbWebStatus.ILLEGAL_PARAM);
+		}
 		List<TeacherSearch> list = iTeacherSearchService.list(new QueryWrapper<TeacherSearch>().lambda().eq(TeacherSearch::getMobile, teacherSearchVo.getMobile()));
 		if (!CollectionUtils.isEmpty(list)) {
-			return KkbResponse.failure();
+			return KkbResponse.failure(KkbWebStatus.ILLEGAL_PARAM);
 		}
 		List<TeacherSearch> addList = Lists.newArrayList();
 		teacherSearchVo.getTeacherIds().forEach(id -> {
