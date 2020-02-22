@@ -65,6 +65,6 @@ public class Activity implements Serializable {
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime searchEndTime;
 
-
+	private String remark;
 
 }

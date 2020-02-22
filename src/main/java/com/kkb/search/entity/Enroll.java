@@ -31,19 +31,9 @@ public class Enroll implements Serializable {
     private String openId;
 
     /**
-     * 0：未报名）1：已报名）
-     */
-    private Integer status;
-
-    /**
      * 创建时间
      */
     private LocalDateTime createTime;
-
-    /**
-     * 报名时间
-     */
-    private LocalDateTime enrollTime;
 
 
 
