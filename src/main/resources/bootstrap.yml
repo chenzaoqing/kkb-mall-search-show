@@ -1,0 +1,275 @@
+spring:
+  profiles:
+    active: test
+  application:
+    name: search
+  main:
+    allow-bean-definition-overriding: true
+
+---
+spring:
+  profiles: prod
+  cloud:
+    nacos:
+      discovery:
+        #注册中心
+        server-addr: 192.168.2.37:8848
+        #注册中心地址
+        namespace: 01f7652a-12d4-4f5b-9146-0bca23375b26
+
+
+      config:
+        prefix: ${spring.application.name}
+        #prefix 对应文件名
+        file-extension: yml
+        #file-extension 文件格式
+        server-addr: 192.168.2.37:8848
+        #配置中心地址
+        shared-dataids: application.yml
+        #shared-dataids 来支持多个共享 Data Id 的配置，多个之间用逗号隔开
+        refreshable-dataids: application.yml
+        #refreshable-dataids 来支持哪些共享配置的 Data Id 在配置变化时，应用中是否可动态刷新， 感知到最新的配置值，多个 Data Id 之间用逗号隔开
+        namespace: 01f7652a-12d4-4f5b-9146-0bca23375b26
+        group: SERVICE_GROUP
+
+---
+spring:
+  profiles: pre
+  cloud:
+    nacos:
+      discovery:
+        #注册中心
+        server-addr: 192.168.2.37:8848
+        #注册中心地址
+        namespace: 52dfb7fd-5300-43e7-9861-b7675eece941
+
+      config:
+        prefix: ${spring.application.name}
+        #prefix 对应文件名
+        file-extension: yml
+        #file-extension 文件格式
+        server-addr: 192.168.2.37:8848
+        #配置中心地址
+        shared-dataids: application.yml
+        #shared-dataids 来支持多个共享 Data Id 的配置，多个之间用逗号隔开
+        refreshable-dataids: application.yml
+        #refreshable-dataids 来支持哪些共享配置的 Data Id 在配置变化时，应用中是否可动态刷新， 感知到最新的配置值，多个 Data Id 之间用逗号隔开
+        namespace: 52dfb7fd-5300-43e7-9861-b7675eece941
+        group: SERVICE_GROUP
+
+---
+spring:
+  profiles: develop
+  cloud:
+    nacos:
+      discovery:
+        #注册中心
+        server-addr: 192.168.100.36:8848
+        #注册中心地址
+        namespace: 4600e29b-accd-47cc-986e-3ad814b49b29
+
+
+      config:
+        prefix: ${spring.application.name}
+        #prefix 对应文件名
+        file-extension: yml
+        #file-extension 文件格式
+        server-addr: 192.168.100.36:8848
+        #配置中心地址
+        shared-dataids: application.yml
+        #shared-dataids 来支持多个共享 Data Id 的配置，多个之间用逗号隔开
+        refreshable-dataids: application.yml
+        #refreshable-dataids 来支持哪些共享配置的 Data Id 在配置变化时，应用中是否可动态刷新， 感知到最新的配置值，多个 Data Id 之间用逗号隔开
+        namespace: 4600e29b-accd-47cc-986e-3ad814b49b29
+        group: SERVICE_GROUP
+---
+spring:
+  profiles: test
+  cloud:
+    nacos:
+      discovery:
+        #注册中心
+        server-addr: 192.168.100.36:8848
+        #注册中心地址
+        namespace: 1e892207-2607-4040-88d7-fa989699c0f5
+      config:
+        prefix: ${spring.application.name}
+        #prefix 对应文件名
+        file-extension: yml
+        #file-extension 文件格式
+        server-addr: 192.168.100.36:8848
+        #配置中心地址
+        shared-dataids: application.yml
+        #shared-dataids 来支持多个共享 Data Id 的配置，多个之间用逗号隔开
+        refreshable-dataids: application.yml
+        #refreshable-dataids 来支持哪些共享配置的 Data Id 在配置变化时，应用中是否可动态刷新， 感知到最新的配置值，多个 Data Id 之间用逗号隔开
+        namespace: 1e892207-2607-4040-88d7-fa989699c0f5
+        group: SERVICE_GROUP
+
+---
+spring:
+  profiles: dev
+  cloud:
+    nacos:
+      discovery:
+        #注册中心
+        server-addr: 192.168.100.36:8848
+        #注册中心地址
+        namespace: cce71327-fbb0-4151-9efa-3a22148fe84c
+      config:
+        prefix: ${spring.application.name}
+        #prefix 对应文件名
+        file-extension: yml
+        #file-extension 文件格式
+        server-addr: 192.168.100.36:8848
+        #配置中心地址
+        shared-dataids: application.yml
+        #shared-dataids 来支持多个共享 Data Id 的配置，多个之间用逗号隔开
+        refreshable-dataids: application.yml
+        #refreshable-dataids 来支持哪些共享配置的 Data Id 在配置变化时，应用中是否可动态刷新， 感知到最新的配置值，多个 Data Id 之间用逗号隔开
+        namespace: cce71327-fbb0-4151-9efa-3a22148fe84c
+        group: SERVICE_GROUP
+
+---
+spring:
+  profiles: lbzheng
+  cloud:
+    nacos:
+      discovery:
+        #注册中心
+        server-addr: 192.168.100.36:8848
+        #注册中心地址
+        namespace: 64735aae-c8ff-42ce-8234-e9af322c29d0
+      config:
+        prefix: ${spring.application.name}
+        #prefix 对应文件名
+        file-extension: yml
+        #file-extension 文件格式
+        server-addr: 192.168.100.36:8848
+        #配置中心地址
+        shared-dataids: application.yml
+        #shared-dataids 来支持多个共享 Data Id 的配置，多个之间用逗号隔开
+        refreshable-dataids: application.yml
+        #refreshable-dataids 来支持哪些共享配置的 Data Id 在配置变化时，应用中是否可动态刷新， 感知到最新的配置值，多个 Data Id 之间用逗号隔开
+        namespace: 64735aae-c8ff-42ce-8234-e9af322c29d0
+        group: SERVICE_GROUP
+
+---
+spring:
+  profiles: zqchen
+  cloud:
+    nacos:
+      discovery:
+        #注册中心
+        server-addr: 192.168.100.36:8848
+        #注册中心地址
+        namespace: cde82a91-240a-4dd8-a0f1-0ce441693f6b
+      config:
+        prefix: ${spring.application.name}
+        #prefix 对应文件名
+        file-extension: yml
+        #file-extension 文件格式
+        server-addr: 192.168.100.36:8848
+        #配置中心地址
+        shared-dataids: application.yml
+        #shared-dataids 来支持多个共享 Data Id 的配置，多个之间用逗号隔开
+        refreshable-dataids: application.yml
+        #refreshable-dataids 来支持哪些共享配置的 Data Id 在配置变化时，应用中是否可动态刷新， 感知到最新的配置值，多个 Data Id 之间用逗号隔开
+        namespace: cde82a91-240a-4dd8-a0f1-0ce441693f6b
+        group: SERVICE_GROUP
+
+---
+spring:
+  profiles: bxqi
+  cloud:
+    nacos:
+      discovery:
+        #注册中心
+        server-addr: 192.168.100.36:8848
+        #注册中心地址
+        namespace: ebcfa966-b413-414c-8d56-c9728a4add05
+      config:
+        prefix: ${spring.application.name}
+        #prefix 对应文件名
+        file-extension: yml
+        #file-extension 文件格式
+        server-addr: 192.168.100.36:8848
+        #配置中心地址
+        shared-dataids: application.yml
+        #shared-dataids 来支持多个共享 Data Id 的配置，多个之间用逗号隔开
+        refreshable-dataids: application.yml
+        #refreshable-dataids 来支持哪些共享配置的 Data Id 在配置变化时，应用中是否可动态刷新， 感知到最新的配置值，多个 Data Id 之间用逗号隔开
+        namespace: ebcfa966-b413-414c-8d56-c9728a4add05
+        group: SERVICE_GROUP
+
+---
+spring:
+  profiles: jzhao
+  cloud:
+    nacos:
+      discovery:
+        #注册中心
+        server-addr: 192.168.100.36:8848
+        #注册中心地址
+        namespace: 66a2d74e-db42-433e-ae35-16d853e1ebaf
+      config:
+        prefix: ${spring.application.name}
+        #prefix 对应文件名
+        file-extension: yml
+        #file-extension 文件格式
+        server-addr: 192.168.100.36:8848
+        #配置中心地址
+        shared-dataids: application.yml
+        #shared-dataids 来支持多个共享 Data Id 的配置，多个之间用逗号隔开
+        refreshable-dataids: application.yml
+        #refreshable-dataids 来支持哪些共享配置的 Data Id 在配置变化时，应用中是否可动态刷新， 感知到最新的配置值，多个 Data Id 之间用逗号隔开
+        namespace: 66a2d74e-db42-433e-ae35-16d853e1ebaf
+        group: SERVICE_GROUP
+
+---
+spring:
+  profiles: sli
+  cloud:
+    nacos:
+      discovery:
+        #注册中心
+        server-addr: 192.168.100.36:8848
+        #注册中心地址
+        namespace: 1e8a315c-e94f-4c50-932f-1b305494c2ad
+      config:
+        prefix: ${spring.application.name}
+        #prefix 对应文件名
+        file-extension: yml
+        #file-extension 文件格式
+        server-addr: 192.168.100.36:8848
+        #配置中心地址
+        shared-dataids: application.yml
+        #shared-dataids 来支持多个共享 Data Id 的配置，多个之间用逗号隔开
+        refreshable-dataids: application.yml
+        #refreshable-dataids 来支持哪些共享配置的 Data Id 在配置变化时，应用中是否可动态刷新， 感知到最新的配置值，多个 Data Id 之间用逗号隔开
+        namespace: 1e8a315c-e94f-4c50-932f-1b305494c2ad
+        group: SERVICE_GROUP
+
+---
+spring:
+  profiles: stong
+  cloud:
+    nacos:
+      discovery:
+        #注册中心
+        server-addr: 192.168.100.36:8848
+        #注册中心地址
+        namespace: e7df0641-d039-469d-8b33-1c8b980ec1e5
+      config:
+        prefix: ${spring.application.name}
+        #prefix 对应文件名
+        file-extension: yml
+        #file-extension 文件格式
+        server-addr: 192.168.100.36:8848
+        #配置中心地址
+        shared-dataids: application.yml
+        #shared-dataids 来支持多个共享 Data Id 的配置，多个之间用逗号隔开
+        refreshable-dataids: application.yml
+        #refreshable-dataids 来支持哪些共享配置的 Data Id 在配置变化时，应用中是否可动态刷新， 感知到最新的配置值，多个 Data Id 之间用逗号隔开
+        namespace: e7df0641-d039-469d-8b33-1c8b980ec1e5
+        group: SERVICE_GROUP
