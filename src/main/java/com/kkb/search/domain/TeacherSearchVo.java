@@ -1,11 +1,13 @@
-package com.kkb.search.entity;
+package com.kkb.search.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -16,27 +18,23 @@ import java.io.Serializable;
  * @since 2020-02-22
  */
 @Data
-public class TeacherSearch implements Serializable {
+public class TeacherSearchVo implements Serializable {
 
     private static final long serialVersionUID=1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
 
     /**
      * 老师id
      */
-    private Integer teacherId;
+	@NotNull(message = "选择的老师不能为空")
+    private List<Integer> teacherIds;
 
     /**
      * 报名id
      */
+	@NotNull(message = "手机号不能为空")
     private String mobile;
 
-    /**
-     * 选择时间
-     */
-    private LocalDateTime createTime;
 
 
 

@@ -34,10 +34,7 @@ public class EnrollController {
 	@GetMapping("/{mobile}")
 	public KkbResponse info(@PathVariable String mobile) {
 		List<Enroll> list = iEnrollService.list(new QueryWrapper<Enroll>().lambda().eq(Enroll::getMobile, mobile));
-		if (CollectionUtils.isEmpty(list)) {
-			return KkbResponse.success();
-		}
-		return KkbResponse.failure();
+		return KkbResponse.success(CollectionUtils.isEmpty(list) ? 0 : 1);
 	}
 
 	@PostMapping("/add")
