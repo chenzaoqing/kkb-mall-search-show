@@ -41,7 +41,7 @@ public class TeacherSearchController {
 			result.put("status", 0);
 		} else {
 			result.put("status", 1);
-			result.put("ids",list.stream().map(e -> e.getId()).collect(Collectors.toList()));
+			result.put("ids",list.stream().map(e -> e.getTeacherId()).collect(Collectors.toList()));
 		}
 		return KkbResponse.success(result);
 	}
